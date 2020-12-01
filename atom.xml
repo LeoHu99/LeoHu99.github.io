@@ -6,7 +6,7 @@
   <link href="https://leohu99.github.io/atom.xml" rel="self"/>
   
   <link href="https://leohu99.github.io/"/>
-  <updated>2020-12-01T12:09:30.157Z</updated>
+  <updated>2020-12-01T19:19:29.005Z</updated>
   <id>https://leohu99.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux系统文件以及文件夹权限的作用</title>
+    <link href="https://leohu99.github.io/2020/12/02/Linux%E7%B3%BB%E7%BB%9F%E6%96%87%E4%BB%B6%E4%BB%A5%E5%8F%8A%E6%96%87%E4%BB%B6%E5%A4%B9%E6%9D%83%E9%99%90%E7%9A%84%E4%BD%9C%E7%94%A8/"/>
+    <id>https://leohu99.github.io/2020/12/02/Linux%E7%B3%BB%E7%BB%9F%E6%96%87%E4%BB%B6%E4%BB%A5%E5%8F%8A%E6%96%87%E4%BB%B6%E5%A4%B9%E6%9D%83%E9%99%90%E7%9A%84%E4%BD%9C%E7%94%A8/</id>
+    <published>2020-12-01T16:45:20.000Z</published>
+    <updated>2020-12-01T19:19:29.005Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-Linux文件权限详解"><a href="#1-Linux文件权限详解" class="headerlink" title="1. Linux文件权限详解"></a>1. Linux文件权限详解</h2><p>Linux系统中不仅是对用户与组根据UID,GID进行了管理，还对Linux系统中的文件，按照用户与组进行分类，针对不同的群体进行了权限管理，用他来确定谁能通过何种方式对文件和目录进行访问和操作。</p><ol><li><p>文件的权限针对三类对象进行定义<br> owner 属主，缩写u<br> group 属组，缩写g<br> other 其他，缩写o<br> all 全部(包括u，g和o)，缩写a<br><img src= "/img/loading.gif" data-lazy-src="03.png"></p></li><li><p>每个文件/文件夹针对每类访问者定义了三种主要权限<br> r：Read，读取，权限值为4。</p><pre><code> 文件: 具有读取文件内容的权限。 目录: 具有浏览目录的权限。</code></pre><p> w：Write，写入，权限值为2。</p><pre><code> 文件: 具有新增、修改文件内容的权限。 目录: 具有删除、移动目录内文件的权限。</code></pre><p> x：eXecute，执行，权限值为1。</p><pre><code> 文件: 文件可以作为程序执行。 目录: 该用户具有进入目录的权限。</code></pre><p><img src= "/img/loading.gif" data-lazy-src="04.png"></p></li></ol><p><font color=#ff0000>root账户不受文件权限的读写限制，执行权限受限制</font></p><h2 id="2-修改文件和文件夹对应用户的操作权限"><a href="#2-修改文件和文件夹对应用户的操作权限" class="headerlink" title="2. 修改文件和文件夹对应用户的操作权限"></a>2. 修改文件和文件夹对应用户的操作权限</h2><ul><li>chmod 修改权限 change mode<br>  方法1：mode法<br>  格式：chmod who opt per file</li></ul><table><thead><tr><th align="center">who</th><th align="center">opt</th><th align="center">per</th></tr></thead><tbody><tr><td align="center">u 表示“用户（user）”，即文件或目录的所有者</td><td align="center">+ 添加某个权限</td><td align="center">r 可读</td></tr><tr><td align="center">g 表示“同组（group）用户”，即与文件属主有相同组ID的所有用户</td><td align="center">- 取消某个权限</td><td align="center">w 可写</td></tr><tr><td align="center">o 表示“其他（others）用户”</td><td align="center">= 赋予给定权限并取消其他所有权限（如果有的话）</td><td align="center">x 可执行</td></tr><tr><td align="center">a 表示“所有（all）用户”。它是系统默认值</td><td align="center">-</td><td align="center">X 只有目标文件对某些用户是可执行的或该目标文件是目录时才追加x 属性</td></tr><tr><td align="center">–</td><td align="center">-</td><td align="center">s 在文件执行时把进程的属主或组ID置为该文件的文件属主(方式“u＋s”设置文件的用户ID位，“g＋s”设置组ID位。)</td></tr></tbody></table><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ chmod a+r file 表示对所有对象增加读取权限</span><br><span class="line">$ chmod g+r，o+r file 使同组和其他用户对文件file有读权限</span><br></pre></td></tr></table></figure><ul><li>数字法<br>  格式：chmod XXX file</li></ul><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rwx rw- r--</span><br><span class="line">111 110 100</span><br><span class="line">7   6   4</span><br><span class="line"></span><br><span class="line">r:4</span><br><span class="line">w:2</span><br><span class="line">x:1</span><br><span class="line">$ chmod 777 file 表示file文件允许所有对象拥有该文件的所有权限</span><br></pre></td></tr></table></figure><p>好啦，本次浅谈了解了一下Linux文件的权限以及配置~<br>深度了解点<a href="https://blog.csdn.net/lv8549510/article/details/85406215">这里</a></p><ul><li>参考资料<br><a href="https://blog.csdn.net/bmbm546/article/details/6875972">ight546</a><br><a href="https://blog.csdn.net/zbj18314469395/article/details/106624540">软测小生</a></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;1-Linux文件权限详解&quot;&gt;&lt;a href=&quot;#1-Linux文件权限详解&quot; class=&quot;headerlink&quot; title=&quot;1. Linux文件权限详解&quot;&gt;&lt;/a&gt;1. Linux文件权限详解&lt;/h2&gt;&lt;p&gt;Linux系统中不仅是对用户与组根据UID,GI</summary>
+      
+    
+    
+    
+    <category term="linux" scheme="https://leohu99.github.io/categories/linux/"/>
+    
+    
+    <category term="centos" scheme="https://leohu99.github.io/tags/centos/"/>
+    
+    <category term="storage" scheme="https://leohu99.github.io/tags/storage/"/>
+    
+  </entry>
   
   <entry>
     <title>CentOS7.7搭建NFS（网络文件系统）服务</title>
