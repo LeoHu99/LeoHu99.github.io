@@ -6,7 +6,7 @@
   <link href="https://leohu99.github.io/atom.xml" rel="self"/>
   
   <link href="https://leohu99.github.io/"/>
-  <updated>2020-12-07T10:54:56.285Z</updated>
+  <updated>2021-03-30T08:19:09.655Z</updated>
   <id>https://leohu99.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python基础篇</title>
+    <link href="https://leohu99.github.io/2021/03/30/Python%E5%9F%BA%E7%A1%80%E7%AF%87/"/>
+    <id>https://leohu99.github.io/2021/03/30/Python%E5%9F%BA%E7%A1%80%E7%AF%87/</id>
+    <published>2021-03-30T08:16:22.000Z</published>
+    <updated>2021-03-30T08:19:09.655Z</updated>
+    
+    
+    
+    
+    <category term="Python基础篇" scheme="https://leohu99.github.io/categories/Python%E5%9F%BA%E7%A1%80%E7%AF%87/"/>
+    
+    
+    <category term="Python" scheme="https://leohu99.github.io/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>BGP路径选择与路由聚合</title>
