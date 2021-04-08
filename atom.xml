@@ -6,7 +6,7 @@
   <link href="https://leohu99.github.io/atom.xml" rel="self"/>
   
   <link href="https://leohu99.github.io/"/>
-  <updated>2021-03-30T08:19:09.655Z</updated>
+  <updated>2021-04-08T16:55:34.879Z</updated>
   <id>https://leohu99.github.io/</id>
   
   <author>
@@ -17,19 +17,28 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Python基础篇</title>
-    <link href="https://leohu99.github.io/2021/03/30/Python%E5%9F%BA%E7%A1%80%E7%AF%87/"/>
-    <id>https://leohu99.github.io/2021/03/30/Python%E5%9F%BA%E7%A1%80%E7%AF%87/</id>
-    <published>2021-03-30T08:16:22.000Z</published>
-    <updated>2021-03-30T08:19:09.655Z</updated>
+    <title>了解认识My SQL与安装</title>
+    <link href="https://leohu99.github.io/2021/04/08/%E4%BA%86%E8%A7%A3%E8%AE%A4%E8%AF%86My%20SQL%E4%B8%8E%E5%AE%89%E8%A3%85/"/>
+    <id>https://leohu99.github.io/2021/04/08/%E4%BA%86%E8%A7%A3%E8%AE%A4%E8%AF%86My%20SQL%E4%B8%8E%E5%AE%89%E8%A3%85/</id>
+    <published>2021-04-08T07:39:56.000Z</published>
+    <updated>2021-04-08T16:55:34.879Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="认识My-SQL"><a href="#认识My-SQL" class="headerlink" title="认识My SQL"></a>认识My SQL</h2><h3 id="什么是My-SQL"><a href="#什么是My-SQL" class="headerlink" title="什么是My SQL?"></a>什么是My SQL?</h3><ul><li>MySQL 是最流行的关系型数据库管理系统，在 WEB 应用方面 MySQL 是最好的关系数据库管理系统应用软件之一。</li></ul><h3 id="什么是数据库？"><a href="#什么是数据库？" class="headerlink" title="什么是数据库？"></a>什么是数据库？</h3><ul><li>数据库（Database）是按照数据结构来组织、存储和管理数据的仓库。</li><li>每个数据库都有一个或多个不同的 API 用于创建，访问，管理，搜索和复制所保存的数据。</li><li>我们也可以将数据存储在文件中，但是在文件中读写数据速度相对较慢。所以，现在我们使用关系型数据库管理系统（RDBMS）来存储和管理大数据量。</li><li>所谓的关系型数据库，是建立在关系模型基础上的数据库，借助于集合代数等数学概念和方法来处理数据库中的数据。</li><li>RDBMS 即关系数据库管理系统(Relational Database Management System)的特点：<ul><li>数据以表格的形式出现</li><li>每行为各种记录名称</li><li>每列为记录名称所对应的数据域</li><li>许多的行和列组成一张表单</li><li>若干的表单组成database</li></ul></li></ul><h3 id="RDBMS-术语"><a href="#RDBMS-术语" class="headerlink" title="RDBMS 术语"></a>RDBMS 术语</h3><ul><li>数据库: 数据库是一些关联表的集合。</li><li>数据表: 表是数据的矩阵。在一个数据库中的表看起来像一个简单的电子表格。</li><li>列: 一列(数据元素) 包含了相同类型的数据, 例如邮政编码的数据。</li><li>行：一行（=元组，或记录）是一组相关的数据，例如一条用户订阅的数据。</li><li>冗余：存储两倍数据，冗余降低了性能，但提高了数据的安全性。</li><li>主键：主键是唯一的。一个数据表中只能包含一个主键。你可以使用主键来查询数据。</li><li>外键：外键用于关联两个表。</li><li>复合键：复合键（组合键）将多个列作为一个索引键，一般用于复合索引</li><li>索引：使用索引可快速访问数据库表中的特定信息。索引是对数据库表中一列或多列的值进行排序的一种结构。类似于书籍的目录。</li><li>参照完整性: 参照的完整性要求关系中不允许引用不存在的实体。与实体完整性是关系模型必须满足的完整性约束条件，目的是保证数据的一致性。</li></ul><h2 id="安装My-SQL"><a href="#安装My-SQL" class="headerlink" title="安装My SQL"></a>安装My SQL</h2><p>好啦，经过上面的简单介绍，相信你对My SQL有所了解了，那我们就开始安装My SQL吧！<br>注意：我这里是采用 linux CentOS 7 系统安装 mysql 8 的！毕竟windows Server要钱才能用，同时，Windows系统也不是特别的稳定<del>(我赌企业都是用linux)</del></p><h3 id="安装MySQL-8"><a href="#安装MySQL-8" class="headerlink" title="安装MySQL 8"></a>安装MySQL 8</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum update</span><br><span class="line">rpm -Uvh https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm</span><br><span class="line">yum install mysql-community-server</span><br></pre></td></tr></table></figure><h3 id="查看MySQL初始密码"><a href="#查看MySQL初始密码" class="headerlink" title="查看MySQL初始密码"></a>查看MySQL初始密码</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo /usr/bin/mysql_secure_installation  <span class="comment"># 输入用户登录密码</span></span><br><span class="line">grep <span class="string">&quot;A temporary password&quot;</span> /var/<span class="built_in">log</span>/mysqld.log</span><br></pre></td></tr></table></figure><p><img src= "/img/loading.gif" data-lazy-src="003.png"></p><h3 id="更改初始密码"><a href="#更改初始密码" class="headerlink" title="更改初始密码"></a>更改初始密码</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo /usr/bin/mysql_secure_installation  <span class="comment"># 输入刚刚看到的初始密码；密码必须包含字母大小写以及数字！</span></span><br></pre></td></tr></table></figure><h3 id="设置开机自启-MySQL，启动-MySQL-并查看-MySQL-运行状态"><a href="#设置开机自启-MySQL，启动-MySQL-并查看-MySQL-运行状态" class="headerlink" title="设置开机自启 MySQL，启动 MySQL 并查看 MySQL 运行状态"></a>设置开机自启 MySQL，启动 MySQL 并查看 MySQL 运行状态</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> mysqld</span><br><span class="line">systemctl restart mysqld</span><br><span class="line">systemctl status mysqld</span><br></pre></td></tr></table></figure><h3 id="登录以及退出-MySQL"><a href="#登录以及退出-MySQL" class="headerlink" title="登录以及退出 MySQL"></a>登录以及退出 MySQL</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure><p><img src= "/img/loading.gif" data-lazy-src="004.png"></p><h2 id="The-end"><a href="#The-end" class="headerlink" title="The end!"></a>The end!</h2><p>网上实在太多的坑了，踩了一个又一个…最后，我还是参考了这篇博客<a href="http://pclevin.blogspot.com/2018/09/centos-7-mysql80.html">Java程式教學甘仔店</a>有兴趣可以点进去看看</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;认识My-SQL&quot;&gt;&lt;a href=&quot;#认识My-SQL&quot; class=&quot;headerlink&quot; title=&quot;认识My SQL&quot;&gt;&lt;/a&gt;认识My SQL&lt;/h2&gt;&lt;h3 id=&quot;什么是My-SQL&quot;&gt;&lt;a href=&quot;#什么是My-SQL&quot; class=&quot;he</summary>
+      
     
     
     
+    <category term="My SQL" scheme="https://leohu99.github.io/categories/My-SQL/"/>
     
-    <category term="Python基础篇" scheme="https://leohu99.github.io/categories/Python%E5%9F%BA%E7%A1%80%E7%AF%87/"/>
     
+    <category term="storage" scheme="https://leohu99.github.io/tags/storage/"/>
     
-    <category term="Python" scheme="https://leohu99.github.io/tags/Python/"/>
+    <category term="My SQL安装" scheme="https://leohu99.github.io/tags/My-SQL%E5%AE%89%E8%A3%85/"/>
     
   </entry>
   
@@ -123,7 +132,7 @@
     <link href="https://leohu99.github.io/2020/11/29/%E5%BD%A5%E5%AE%87%E5%B0%88%E5%8D%80/"/>
     <id>https://leohu99.github.io/2020/11/29/%E5%BD%A5%E5%AE%87%E5%B0%88%E5%8D%80/</id>
     <published>2020-11-29T08:03:05.000Z</published>
-    <updated>2020-11-30T20:36:27.992Z</updated>
+    <updated>2021-04-08T07:37:29.806Z</updated>
     
     <content type="html"><![CDATA[<h2 id="歡迎來到智障廢區-彥宇專區"><a href="#歡迎來到智障廢區-彥宇專區" class="headerlink" title="歡迎來到智障廢區 - 彥宇專區~"></a>歡迎來到智障廢區 - 彥宇專區~</h2><p><img src= "/img/loading.gif" data-lazy-src="02.jpg"><br><img src= "/img/loading.gif" data-lazy-src="10.jpg"><br>嘎嘎嘎嘎~</p><p>沒錯，這一頁是專門為你準備的xD</p><p>驚不驚喜？意不意外~</p><p>不用謝我~這是我應該哈哈哈</p><p><img src= "/img/loading.gif" data-lazy-src="03.jpg"> </p><p>反正你這麼多好友都設有你的專區，那我也要有一個~雖然不在你身邊，沒得記錄你的沙雕日常😶但是我可以扒其他有你資訊的人啦😏</p><h2 id="NO-1-前言"><a href="#NO-1-前言" class="headerlink" title="NO.1 前言"></a>NO.1 前言</h2><p>首先，在2020年7月14號那天，你是我在Dcard上認識的第18個好友😝第4個加入我常用聊天軟體的好友，你應該感到慶幸🤣並不是每個人都能要到我的聯繫方式😏</p><p><img src= "/img/loading.gif" data-lazy-src="04.jpg"><br>第一次看到這張照片的時候，我覺得很有趣😂然後就保存了🤪</p><p>我畢業那天我分享了我的畢業照給你,然後我也想看看你的畢業照，之後你就丟了這張圖片給我~<br><img src= "/img/loading.gif" data-lazy-src="05.jpg"><br>超可愛的欸，超想掐你的臉der<br>xDDD<br>那時候的你真的超瘦的欸</p><h2 id="NO-2-論一隻豬的“苗条身材-吗🐷”"><a href="#NO-2-論一隻豬的“苗条身材-吗🐷”" class="headerlink" title="NO.2 論一隻豬的“苗条身材~吗🐷”"></a>NO.2 論一隻豬的“苗条身材~吗🐷”</h2><p>问： 論如何養成一隻豬？<br>查看答案</p><div class="hide-block"><button type="button" class="hide-button button--animated" style="">点🐔一下    </button><span class="hide-content"><p>多吃少动~🤣</p></span></div><p>哈哈，剛好在光棍節那天你丟了張在象山步道拍的101，雖然我在yt上也看過別人去那裡玩，覺得很漂亮，想自己親自有一趟啦~可惜現在的我沒有錢錢QAQ<br><img src= "/img/loading.gif" data-lazy-src="06.jpg"></p><p>咳咳…扯遠了，回到正軌吗😏<br><img src= "/img/loading.gif" data-lazy-src="07.jpg"><br>一個胖子</p><p><img src= "/img/loading.gif" data-lazy-src="08.jpg"><br>還是一個胖子</p><p><img src= "/img/loading.gif" data-lazy-src="09.jpg"><br>再看看現在，還是胖子🤣<br>還是這麼大隻🐷你還是別減肥了吧😏<br>像我這種怎麼吃都不會胖的~你學不來的🤪<br>老老實實當一隻豬豬就好了🐷🐷</p><h2 id="小影片"><a href="#小影片" class="headerlink" title="小影片~"></a>小影片~</h2><p>哈哈哈哈哈哈😂<br><video src='12.mp4' type='video/mp4' controls='controls'  width='100%' height='100%'></video></p>]]></content>
     

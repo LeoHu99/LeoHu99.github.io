@@ -1,0 +1,15 @@
+如果你系统有安装，那可以先移除mariadb程序文件
+
+``` bash
+yum remove -y  mariadb*
+yum -y remove grafana-mysql
+```
+
+然后再查看一下mysql相关文件并删除
+
+``` bash
+find  /  -name  "mysql*" |xargs  rm  -rf
+find  /  -name  "mariadb*" |xargs  rm  -rf
+rm -rf /var/lib/mysql
+rm -rf /etc/my.cnf.d
+```
